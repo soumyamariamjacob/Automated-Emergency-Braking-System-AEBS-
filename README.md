@@ -2,7 +2,7 @@ Explanation
 The Automated Emergency Braking System (AEBS) is designed to enhance vehicle safety by automatically applying the brakes when an imminent collision is detected. This system leverages radar or LIDAR sensors to continuously monitor the vehicle's surroundings for obstacles. If the system identifies a potential collision, it activates the braking actuator to reduce the vehicle’s speed or stop it entirely, thereby preventing or mitigating the impact of an accident.
 
 2. Components Required
-3. Radar or LIDAR Sensor:
+ Radar or LIDAR Sensor:
 
 Radar Sensor (e.g., Bosch SRR): Detects obstacles and measures their distance and speed.
 
