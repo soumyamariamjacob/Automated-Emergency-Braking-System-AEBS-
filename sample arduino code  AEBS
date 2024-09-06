@@ -1,0 +1,45 @@
+cpp
+// Constants for the sensor and actuator
+const int radarPin = A0; // Analog pin connected to the radar sensor
+const int brakePin = 9;  // Digital pin connected to the braking actuator
+
+// Threshold distance in centimeters for triggering the brakes
+const int collisionThreshold = 30;
+
+void setup() {
+  // Initialize the serial communication
+  Serial.begin(9600);
+  
+  // Set the brake pin as an output
+  pinMode(brakePin, OUTPUT);
+  
+  // Initialize the brake actuator to off
+  digitalWrite(brakePin, LOW);
+}
+
+void loop() {
+  // Read the sensor value from the radar
+  int sensorValue = analogRead(radarPin);
+  
+  // Convert the sensor value to distance in centimeters
+  // This conversion depends on the specific radar sensor's characteristics
+  float distance = sensorValue * (5.0 / 1023.0) * 100.0; // Example conversion
+  
+  // Print the distance for debugging
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  
+  // Check if the distance is below the threshold
+  if (distance < collisionThreshold) {
+    // Activate the brakes
+    digitalWrite(brakePin, HIGH);
+    Serial.println("Brakes Activated!");
+  } else {
+    // Deactivate the brakes
+    digitalWrite(brakePin, LOW);
+  }
+  
+  // Small delay for stability
+  delay(100);
+}
